@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - LuckAI</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body class="login-page">
+    <div class="language-toggle">
+        <button class="lang-btn active" onclick="window.location.href='/login'">English</button>
+        <button class="lang-btn" onclick="window.location.href='/fr/login'">Français</button>
+    </div>
+
+    <div class="login-container">
+        <div class="login-logo">
+            <span class="logo-text">LUCK</span><span class="logo-ai">AI</span>
+        </div>
+        
+        <h1 class="login-title">Welcome Back</h1>
+        <p class="login-subtitle">Sign in to access your chat</p>
+
+        <form id="loginForm" class="login-form">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input 
+                    type="text" 
+                    id="username" 
+                    name="username" 
+                    placeholder="Enter your username" 
+                    required
+                    autocomplete="username"
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input 
+                    type="password" 
+                    id="password" 
+                    name="password" 
+                    placeholder="Enter your password" 
+                    required
+                    autocomplete="current-password"
+                >
+            </div>
+
+            <button type="submit" class="login-btn" id="loginBtn">
+                Sign In
+            </button>
+
+            <div class="guest-link-row">
+                <a href="#" id="guestLogin" class="text-link">Continue as guest</a>
+            </div>
+
+            <div class="error-message" id="errorMessage"></div>
+        </form>
+    </div>
+
+    <script src="../assets/js/api.js"></script>
+    <script>
+        // Check if already logged in
+        if (apiClient.isAuthenticated()) {
+            window.location.href = '/chat';
+        }
+
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const loginBtn = document.getElementById('loginBtn');
+            const errorMessage = document.getElementById('errorMessage');
+            errorMessage.textContent = '';
+            try {
+                loginBtn.disabled = true;
+                loginBtn.textContent = 'Signing in...';
+                await apiClient.login(username, password);
+                window.location.href = '/chat';
+            } catch (error) {
+                console.error('Login failed:', error);
+                errorMessage.textContent = error.message || 'Invalid username or password';
+                loginBtn.disabled = false;
+                loginBtn.textContent = 'Sign In';
+            }
+        });
+
+        // Guest login: do not persist history, just set guestMode and go to chat
+        document.getElementById('guestLogin').addEventListener('click', function(e) {
+            e.preventDefault();
+            localStorage.setItem('guestMode', 'true');
+            window.location.href = '/chat';
+        });
+    </script>
+</body>
+</html>
