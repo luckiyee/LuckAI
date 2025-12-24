@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat - LuckAI</title>
-    <link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css" 
+          integrity="sha384-OLBgp1GsljhM2TJ+sbHjaiH9txEUvgdDTAzHv2P24donTt6/529l+9Ua0vFImLlb" 
+          crossorigin="anonymous">
 </head>
 <body class="chat-page">
     <div class="chat-container">
@@ -17,28 +19,29 @@
             </div>
 
             <nav class="sidebar-nav">
-                <a href="/" class="sidebar-link">
-                    <span>Home</span>
+                <a href="/fr" class="sidebar-link">
+                    <span>Accueil</span>
                 </a>
-                <a href="/chat" class="sidebar-link active">
+                <a href="/fr/chat" class="sidebar-link active">
                     <span>Chat</span>
                 </a>
             </nav>
 
             <div class="sidebar-settings">
-                <!-- Language label removed -->
+                <!-- Langue label removed -->
                 <div class="language-toggle">
-                    <button class="lang-btn active" onclick="window.location.href='/chat'">English</button>
-                    <button class="lang-btn" onclick="window.location.href='/fr/chat'">Français</button>
+                    <button class="lang-btn" onclick="window.location.href='/chat'">English</button>
+                    <button class="lang-btn active" onclick="window.location.href='/fr/chat'">Français</button>
                 </div>
 
-                <!-- Web Search toggle removed -->
+                <!-- Recherche Web toggle removed -->
+
                 <div class="sidebar-actions align-center">
                     <button class="reset-btn" id="resetHistoryBtn">
-                        Reset Chat History
+                        Réinitialiser l'historique
                     </button>
                     <button class="logout-btn" id="logoutBtn">
-                        Logout
+                        Déconnexion
                     </button>
                 </div>
             </div>
@@ -51,8 +54,8 @@
 
             <div class="messages-container" id="messagesContainer">
                 <div class="welcome-message">
-                    <h2>Welcome to LuckAI</h2>
-                    <p>Ask me anything in English or French</p>
+                    <h2>Bienvenue sur LuckAI</h2>
+                    <p>Posez-moi n'importe quelle question en français ou en anglais</p>
                 </div>
             </div>
 
@@ -61,7 +64,7 @@
 
                 <!-- Mode selector: mutually exclusive buttons -->
                 <div class="input-mode" id="inputMode">
-                    <button id="searchModeBtn" class="mode-btn" aria-pressed="true">🔎 Search</button>
+                    <button id="searchModeBtn" class="mode-btn" aria-pressed="true">🔎 Recherche</button>
                     <button id="localModeBtn" class="mode-btn" aria-pressed="false">⌘ Local</button>
                 </div>
 
@@ -69,10 +72,10 @@
                     <textarea 
                         id="messageInput" 
                         class="chat-input" 
-                        placeholder="Ask your question..."
+                        placeholder="Posez votre question..."
                         rows="1"
                     ></textarea>
-                    <button id="sendBtn" class="send-btn" title="Send message">
+                    <button id="sendBtn" class="send-btn" title="Envoyer le message">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <line x1="22" y1="2" x2="11" y2="13"></line>
                             <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
@@ -83,9 +86,11 @@
         </main>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-    <script src="../assets/js/api.js"></script>
-    <script src="../assets/js/chat.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" 
+            integrity="sha384-OLBgp1GsljhM2TJ+sbHjaiH9txEUvgdDTAzHv2P24donTt6/529l+9Ua0vFImLlb" 
+            crossorigin="anonymous"></script>
+    <script src="/assets/js/api.js"></script>
+    <script src="/assets/js/chat.js"></script>
 </body>
 </html>
