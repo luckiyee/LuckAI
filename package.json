@@ -1,0 +1,32 @@
+{
+  "name": "luckai",
+  "version": "1.0.0",
+  "description": "LuckAI - A bilingual generative AI assistant powered by neural networks and web search (DuckDuckGo)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "ai",
+    "chatbot",
+    "transformer",
+    "neural-network",
+    "deepseek",
+    "bilingual",
+    "web-search"
+  ],
+  "author": "LuckAI Team",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
+    "node-fetch": "^2.7.0",
+    "node-llama-cpp": "^3.14.5"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

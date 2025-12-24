@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat - LuckAI</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+</head>
+<body class="chat-page">
+    <div class="chat-container">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <span class="logo-text">LUCK</span><span class="logo-ai">AI</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="/" class="sidebar-link">
+                    <span>Home</span>
+                </a>
+                <a href="/chat" class="sidebar-link active">
+                    <span>Chat</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-settings">
+                <!-- Language label removed -->
+                <div class="language-toggle">
+                    <button class="lang-btn active" onclick="window.location.href='/chat'">English</button>
+                    <button class="lang-btn" onclick="window.location.href='/fr/chat'">Français</button>
+                </div>
+
+                <!-- Web Search toggle removed -->
+                <div class="sidebar-actions align-center">
+                    <button class="reset-btn" id="resetHistoryBtn">
+                        Reset Chat History
+                    </button>
+                    <button class="logout-btn" id="logoutBtn">
+                        Logout
+                    </button>
+                </div>
+            </div>
+        </aside>
+
+        <main class="chat-main">
+            <div class="chat-header">
+                <h1 class="chat-title">o_o</h1>
+            </div>
+
+            <div class="messages-container" id="messagesContainer">
+                <div class="welcome-message">
+                    <h2>Welcome to LuckAI</h2>
+                    <p>Ask me anything in English or French</p>
+                </div>
+            </div>
+
+            <div class="chat-input-container">
+                <div class="input-status" id="inputStatus"></div>
+
+                <!-- Mode selector: mutually exclusive buttons -->
+                <div class="input-mode" id="inputMode">
+                    <button id="searchModeBtn" class="mode-btn" aria-pressed="true">🔎 Search</button>
+                    <button id="localModeBtn" class="mode-btn" aria-pressed="false">⌘ Local</button>
+                </div>
+
+                <div class="chat-input-wrapper">
+                    <textarea 
+                        id="messageInput" 
+                        class="chat-input" 
+                        placeholder="Ask your question..."
+                        rows="1"
+                    ></textarea>
+                    <button id="sendBtn" class="send-btn" title="Send message">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="22" y1="2" x2="11" y2="13"></line>
+                            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="../assets/js/api.js"></script>
+    <script src="../assets/js/chat.js"></script>
+</body>
+</html>
