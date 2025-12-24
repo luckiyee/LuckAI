@@ -1070,7 +1070,7 @@ app.get('/index.html', (req, res) => {
 // Index page (French)
 app.get('/fr/index.html', (req, res) => {
     log('INFO', 'Serving index page (French)');
-    res.sendFile(path.join(__dirname, 'html', 'index.html'));
+    res.sendFile(path.join(__dirname, 'html', 'index-fr.html'));
 });
 
 /* ============================================
